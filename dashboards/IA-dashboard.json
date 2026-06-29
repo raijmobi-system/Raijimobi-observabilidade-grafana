@@ -42,7 +42,7 @@
                     "kind": "DataQuery",
                     "spec": {
                       "editorMode": "builder",
-                      "expr": "notifiications_sent_total",
+                      "expr": "ai_requests_total",
                       "legendFormat": "__auto",
                       "range": true
                     },
@@ -59,7 +59,7 @@
         "description": "",
         "id": 1,
         "links": [],
-        "title": "Total de notificações",
+        "title": "Total de chamadas para IA",
         "vizConfig": {
           "group": "stat",
           "kind": "VizConfig",
@@ -126,7 +126,7 @@
                     "kind": "DataQuery",
                     "spec": {
                       "editorMode": "builder",
-                      "expr": "notifications_sent_total",
+                      "expr": "ai_requests_total",
                       "legendFormat": "__auto",
                       "range": true
                     },
@@ -143,7 +143,7 @@
         "description": "",
         "id": 2,
         "links": [],
-        "title": "Acompanhamento Total",
+        "title": "Ánalise de IA",
         "vizConfig": {
           "group": "timeseries",
           "kind": "VizConfig",
@@ -244,7 +244,7 @@
                     "kind": "DataQuery",
                     "spec": {
                       "editorMode": "builder",
-                      "expr": "notifications_read_total",
+                      "expr": "ai_recommendations_total",
                       "legendFormat": "__auto",
                       "range": true
                     },
@@ -261,7 +261,7 @@
         "description": "",
         "id": 3,
         "links": [],
-        "title": "Notificações Lidas",
+        "title": "Total de Recomendações geradas",
         "vizConfig": {
           "group": "stat",
           "kind": "VizConfig",
@@ -328,7 +328,7 @@
                     "kind": "DataQuery",
                     "spec": {
                       "editorMode": "builder",
-                      "expr": "notifications_read_total",
+                      "expr": "ai_recommendations_total",
                       "legendFormat": "__auto",
                       "range": true
                     },
@@ -345,7 +345,7 @@
         "description": "",
         "id": 4,
         "links": [],
-        "title": "Acompanhamento de lidas",
+        "title": "Ánalise de Recomendações geradas",
         "vizConfig": {
           "group": "timeseries",
           "kind": "VizConfig",
@@ -446,7 +446,7 @@
                     "kind": "DataQuery",
                     "spec": {
                       "editorMode": "builder",
-                      "expr": "notifications_from_ride_total",
+                      "expr": "ai_filters_total",
                       "legendFormat": "__auto",
                       "range": true
                     },
@@ -463,7 +463,7 @@
         "description": "",
         "id": 5,
         "links": [],
-        "title": "Total do ride service",
+        "title": "Total de Filtros inteligentes",
         "vizConfig": {
           "group": "stat",
           "kind": "VizConfig",
@@ -530,7 +530,7 @@
                     "kind": "DataQuery",
                     "spec": {
                       "editorMode": "builder",
-                      "expr": "notifications_from_ride_total",
+                      "expr": "ai_filters_total",
                       "legendFormat": "__auto",
                       "range": true
                     },
@@ -547,7 +547,7 @@
         "description": "",
         "id": 6,
         "links": [],
-        "title": "New panel",
+        "title": "Ánalise de Filtros",
         "vizConfig": {
           "group": "timeseries",
           "kind": "VizConfig",
@@ -648,7 +648,7 @@
                     "kind": "DataQuery",
                     "spec": {
                       "editorMode": "builder",
-                      "expr": "notifications_from_chat_total",
+                      "expr": "ai_requests_failed_total",
                       "legendFormat": "__auto",
                       "range": true
                     },
@@ -665,7 +665,7 @@
         "description": "",
         "id": 7,
         "links": [],
-        "title": "Total do chat service",
+        "title": "Total de Erros da IA",
         "vizConfig": {
           "group": "stat",
           "kind": "VizConfig",
@@ -729,7 +729,7 @@
                     "kind": "DataQuery",
                     "spec": {
                       "editorMode": "builder",
-                      "expr": "notifications_from_chat_total",
+                      "expr": "ai_requests_failed_total",
                       "legendFormat": "__auto",
                       "range": true
                     },
@@ -746,7 +746,125 @@
         "description": "",
         "id": 8,
         "links": [],
-        "title": "Acompanhamento do Chat",
+        "title": "Ánalise de Erros IA",
+        "vizConfig": {
+          "group": "timeseries",
+          "kind": "VizConfig",
+          "spec": {
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisBorderShow": false,
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "barWidthFactor": 0.6,
+                  "drawStyle": "line",
+                  "fillOpacity": 0,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "insertNulls": false,
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "showValues": false,
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": 0
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              },
+              "overrides": []
+            },
+            "options": {
+              "annotations": {
+                "clustering": -1,
+                "multiLane": false
+              },
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "hideZeros": false,
+                "mode": "single",
+                "sort": "none"
+              }
+            }
+          },
+          "version": "13.0.2"
+        }
+      }
+    },
+    "panel-9": {
+      "kind": "Panel",
+      "spec": {
+        "data": {
+          "kind": "QueryGroup",
+          "spec": {
+            "queries": [
+              {
+                "kind": "PanelQuery",
+                "spec": {
+                  "hidden": false,
+                  "query": {
+                    "datasource": {
+                      "name": "afq7hae0eimf4f"
+                    },
+                    "group": "prometheus",
+                    "kind": "DataQuery",
+                    "spec": {
+                      "editorMode": "builder",
+                      "expr": "ai_response_time_seconds_sum",
+                      "legendFormat": "__auto",
+                      "range": true
+                    },
+                    "version": "v0"
+                  },
+                  "refId": "A"
+                }
+              }
+            ],
+            "queryOptions": {},
+            "transformations": []
+          }
+        },
+        "description": "",
+        "id": 9,
+        "links": [],
+        "title": "Tempo máximo de resposta",
         "vizConfig": {
           "group": "timeseries",
           "kind": "VizConfig",
@@ -936,6 +1054,19 @@
             "x": 12,
             "y": 24
           }
+        },
+        {
+          "kind": "GridLayoutItem",
+          "spec": {
+            "element": {
+              "kind": "ElementReference",
+              "name": "panel-9"
+            },
+            "height": 8,
+            "width": 12,
+            "x": 0,
+            "y": 32
+          }
         }
       ]
     }
@@ -972,6 +1103,6 @@
     "timezone": "browser",
     "to": "now"
   },
-  "title": "Total de requisições - Notifications Service",
+  "title": "Total de requisições - IA",
   "variables": []
 }

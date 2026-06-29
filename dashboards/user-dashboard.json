@@ -329,7 +329,7 @@
               "percentChangeColorMode": "standard",
               "reduceOptions": {
                 "calcs": [
-                  "lastNotNull"
+                  "sum"
                 ],
                 "fields": "",
                 "values": false
@@ -413,7 +413,7 @@
               "percentChangeColorMode": "standard",
               "reduceOptions": {
                 "calcs": [
-                  "lastNotNull"
+                  "sum"
                 ],
                 "fields": "",
                 "values": false
@@ -615,7 +615,7 @@
               "percentChangeColorMode": "standard",
               "reduceOptions": {
                 "calcs": [
-                  "lastNotNull"
+                  "sum"
                 ],
                 "fields": "",
                 "values": false
@@ -817,7 +817,7 @@
               "percentChangeColorMode": "standard",
               "reduceOptions": {
                 "calcs": [
-                  "lastNotNull"
+                  "sum"
                 ],
                 "fields": "",
                 "values": false
@@ -1019,7 +1019,7 @@
               "percentChangeColorMode": "standard",
               "reduceOptions": {
                 "calcs": [
-                  "lastNotNull"
+                  "sum"
                 ],
                 "fields": "",
                 "values": false
