@@ -10,29 +10,23 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout código
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Validar docker-compose.yml
-        run: |
-          docker compose -f docker-compose.yml config --quiet
+        run: docker compose -f docker-compose.yml config --quiet
 
       - name: Lint da configuração do Prometheus
         run: |
           docker run --rm \
+            --entrypoint promtool \
             -v ${{ github.workspace }}/prometheus.yml:/etc/prometheus/prometheus.yml \
             prom/prometheus \
-            promtool check config /etc/prometheus/prometheus.yml
+            check config /etc/prometheus/prometheus.yml
 
-      # Opcional: testar se o Prometheus sobe (com os alvos possivelmente offline)
-      - name: Subir stack e verificar saúde básica
+      - name: Subir stack e verificar saúde
         run: |
-          # Ajusta o arquivo para usar nomes de serviço internos se necessário,
-          # mas aqui só verificamos se o contêiner sobe e a UI responde.
           docker compose -f docker-compose.yml up -d
           sleep 10
-          # Testa se o Prometheus responde (curl no localhost, via port forward)
           curl --fail http://localhost:9090/-/healthy
-          # Opcional: testa o Grafana
           curl --fail http://localhost:3000/api/health
           docker compose down
